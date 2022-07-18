@@ -6,17 +6,13 @@ import {
   ListItemIcon,
   ListItemText,
   IconButton,
+  ListItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import SignIn from "../pages/SignIn";
+import SignUp from "../pages/SignUp";
 
-const PAGES = [
-  "Products",
-  "Services",
-  "Contact",
-  "About",
-  "Sign in",
-  "Sign up",
-];
+const PAGES = ["Home", "Users", "About"];
 
 const DrawerComp = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -31,6 +27,12 @@ const DrawerComp = () => {
               </ListItemIcon>
             </ListItemButton>
           ))}
+          <ListItem>
+            <SignIn />
+          </ListItem>
+          <ListItem>
+            <SignUp />
+          </ListItem>
         </List>
       </Drawer>
       <IconButton

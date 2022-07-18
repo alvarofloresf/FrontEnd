@@ -5,14 +5,16 @@ import {
   Toolbar,
   Tabs,
   Tab,
-  Button,
   useMediaQuery,
   useTheme,
+  Link,
 } from "@mui/material";
 import PetsOutlinedIcon from "@mui/icons-material/PetsOutlined";
 import DrawerComp from "../drawer/DrawerComp";
+import SignIn from "../pages/SignIn";
+import SignUp from "../pages/SignUp";
 
-const PAGES = ["Products", "Services", "Contact", "About"];
+const PAGES = ["Home", "Users", "About"];
 
 const Navbar = () => {
   const [value, setValue] = useState();
@@ -38,17 +40,13 @@ const Navbar = () => {
                 indicatorColor="secondary"
               >
                 {PAGES.map((page, index) => (
-                  <Tab key={index} label={page} />
+                  <Tab key={index} label={page}>
+                    <Link to={`/${page}`}>{page}</Link>
+                  </Tab>
                 ))}
               </Tabs>
-              <Button sx={{ marginLeft: "auto" }} variant="contained">
-                {" "}
-                Sign in{" "}
-              </Button>
-              <Button sx={{ marginLeft: "10px" }} variant="contained">
-                {" "}
-                Sign up{" "}
-              </Button>
+              <SignIn/>
+              <SignUp/>
             </>
           )}
         </Toolbar>
